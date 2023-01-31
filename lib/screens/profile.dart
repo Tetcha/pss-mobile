@@ -24,18 +24,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    _usernameController =
-        TextEditingController(text: _userProvider.currentUser.username);
-    _emailController =
-        TextEditingController(text: _userProvider.googleAccount?.value.email);
-    _nameController =
-        TextEditingController(text: _userProvider.currentUser.name);
+
+    TextEditingController(text: _userProvider.currentUser.name);
     super.initState();
   }
 
   void _onClear() {
-    _usernameController.text = _userProvider.currentUser.username;
-    _emailController.text = _userProvider.currentUser.email;
     _nameController.text = _userProvider.currentUser.name;
   }
 
@@ -53,14 +47,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(_userProvider.googleAccount.value);
     return Column(
       children: [
         Container(
           margin: const EdgeInsets.symmetric(vertical: 20),
-          child: const Center(
+          child: Center(
             child: CircleAvatar(
               radius: 70,
-              backgroundImage: NetworkImage(
+              backgroundImage: NetworkImage(_userProvider
+                      .googleAccount.value?.photoUrl ??
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg"),
             ),
           ),
@@ -69,15 +65,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
           padding: const EdgeInsets.all(20),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            TextFieldC(
-              controller: _usernameController,
-              label: "Username",
-              name: "username",
+            const SizedBox(height: 10),
+            TextOnly(
+              label: "Email",
+              value: _userProvider.googleAccount.value?.email ?? "Unknown",
             ),
             const SizedBox(height: 10),
-            const TextOnly(
-              label: "Email",
-              value: "dauleduc2@gmail.com",
+            TextOnly(
+              label: "Name",
+              value:
+                  _userProvider.googleAccount.value?.displayName ?? "Unknown",
             ),
             const SizedBox(height: 10),
             TextFieldC(

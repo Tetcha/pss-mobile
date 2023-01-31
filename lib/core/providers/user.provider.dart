@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pss_mobile/core/api/auth.api.dart';
@@ -16,9 +17,8 @@ const defaultUser = User(
 
 class UserProvider extends GetxController {
   final AuthApi _authApi = Get.find();
-
   final _googleSignIn = GoogleSignIn();
-  Rx<GoogleSignInAccount>? googleAccount;
+  var googleAccount = Rx<GoogleSignInAccount?>(null);
 
   User currentUser = defaultUser;
 
@@ -36,9 +36,10 @@ class UserProvider extends GetxController {
   login() async {
     try {
       var res = await _googleSignIn.signIn();
-      if (res == null) {
+      if (res != null) {
         Get.snackbar(
-            "Error", "Something wrong happens, please try again later!");
+            "Error", "Something wrong happens, please try again later!",
+            backgroundColor: Colors.green, colorText: Colors.white);
         throw Exception('Google Sign In Failed');
       }
       googleAccount?.value = res;
