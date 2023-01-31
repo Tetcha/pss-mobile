@@ -34,12 +34,18 @@ class UserProvider extends GetxController {
   }
 
   login() async {
-    var res = await _googleSignIn.signIn();
-
-    if (res == null) throw Exception('Google Sign In Failed');
-
-    googleAccount?.value = res;
-    setIsLogin = true;
+    try {
+      var res = await _googleSignIn.signIn();
+      if (res == null) {
+        Get.snackbar(
+            "Error", "Something wrong happens, please try again later!");
+        throw Exception('Google Sign In Failed');
+      }
+      googleAccount?.value = res;
+      setIsLogin = true;
+    } catch (e) {
+      print("login error $e");
+    }
   }
 
   Future<User?> getCurrentUser() async {

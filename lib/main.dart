@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/injection/index.dart';
-import 'package:pss_mobile/core/models/User/user.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
 import 'package:pss_mobile/screens/profile.dart';
 import 'package:pss_mobile/widgets/autoLogin/autoLogin.dart';

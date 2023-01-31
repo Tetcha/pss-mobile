@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/api/auth.api.dart';
 import 'package:pss_mobile/core/form/TextField.dart';
-import 'package:pss_mobile/core/injection/index.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});

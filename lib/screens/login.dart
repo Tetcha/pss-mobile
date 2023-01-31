@@ -109,8 +109,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     ElevatedButton.icon(
                       onPressed: _onGoogleSignIn,
                       label: const Text("Continue with Google"),
-                      icon: Image.network(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5q0FP74VV9wbfwP378_7kj7iDomHuKrxkXsxDdUT28V9dlVMNUe-EMzaLwaFhneeuZI&usqp=CAU',
+                      icon: Image.asset(
+                        'assets/images/google-logo.png',
+                        width: 28,
+                        height: 28,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    ElevatedButton.icon(
+                      onPressed: _onGoogleSignIn,
+                      label: const Text("Continue with Facebook"),
+                      icon: Image.asset(
+                        'assets/images/facebook-logo.png',
                         width: 28,
                         height: 28,
                       ),

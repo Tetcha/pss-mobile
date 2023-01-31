@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/api/user.api.dart';
 import 'package:pss_mobile/core/form/TextField.dart';
+import 'package:pss_mobile/core/form/TextOnly.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({super.key});
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -26,7 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _usernameController =
         TextEditingController(text: _userProvider.currentUser.username);
     _emailController =
-        TextEditingController(text: _userProvider.currentUser.email);
+        TextEditingController(text: _userProvider.googleAccount?.value.email);
     _nameController =
         TextEditingController(text: _userProvider.currentUser.name);
     super.initState();
@@ -58,24 +59,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
           margin: const EdgeInsets.symmetric(vertical: 20),
           child: const Center(
             child: CircleAvatar(
-                radius: 70,
-                backgroundImage: NetworkImage(
-                    "https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/327355793_1200959854127665_8952550993713958891_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=SOBQSRpIR1sAX-DMQSO&tn=9gpgzQ2CPB2YsPSN&_nc_ht=scontent.fdad1-2.fna&oh=00_AfDE1jriHv9IjhQF2enIWvAfHmdMtgGvxFPxL41lRn-kCg&oe=63D5C650")),
+              radius: 70,
+              backgroundImage: NetworkImage(
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg"),
+            ),
           ),
         ),
         Container(
           padding: const EdgeInsets.all(20),
-          child: Column(children: [
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             TextFieldC(
               controller: _usernameController,
               label: "Username",
               name: "username",
             ),
             const SizedBox(height: 10),
-            TextFieldC(
-              controller: _emailController,
+            const TextOnly(
               label: "Email",
-              name: "email",
+              value: "dauleduc2@gmail.com",
             ),
             const SizedBox(height: 10),
             TextFieldC(
@@ -84,6 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               name: "name",
             ),
             const SizedBox(height: 30),
+            // bottom control button
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

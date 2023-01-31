@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 import 'package:pss_mobile/core/providers/api.provider.dart';
 
 class TextFieldC extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String? label;
   final bool isPassword;
   final String error;
@@ -16,10 +15,11 @@ class TextFieldC extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final dynamic context;
+  final bool disabled;
 
   const TextFieldC({
     super.key,
-    required this.controller,
+    this.controller,
     this.error = '',
     this.label = '',
     this.name = '',
@@ -30,6 +30,7 @@ class TextFieldC extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.context,
+    this.disabled = false,
   });
 
   void _presentDatePicker() {
@@ -44,7 +45,7 @@ class TextFieldC extends StatelessWidget {
           return;
         }
 
-        controller.text = DateFormat.yMd().format(pickedDate);
+        controller?.text = DateFormat.yMd().format(pickedDate);
       });
     } else {
       // ignore: avoid_print
@@ -59,6 +60,7 @@ class TextFieldC extends StatelessWidget {
     return Column(
       children: [
         TextField(
+          enabled: !disabled,
           controller: controller,
           obscureText: isPassword,
           keyboardType: keyBoardType,
