@@ -18,8 +18,8 @@ class Student with _$Student {
     required bool status,
     required String name,
     required String email,
-    @Default("") String googleId,
-    @Default("") String facebookId,
+    @Default("") String? googleId,
+    @Default("") String? facebookId,
   }) = _Student;
 
   factory Student.fromJson(Map<String, dynamic> json) =>

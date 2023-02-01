@@ -31,8 +31,8 @@ mixin _$Student {
   bool get status => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get googleId => throw _privateConstructorUsedError;
-  String get facebookId => throw _privateConstructorUsedError;
+  String? get googleId => throw _privateConstructorUsedError;
+  String? get facebookId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,8 +56,8 @@ abstract class $StudentCopyWith<$Res> {
       bool status,
       String name,
       String email,
-      String googleId,
-      String facebookId});
+      String? googleId,
+      String? facebookId});
 }
 
 /// @nodoc
@@ -84,8 +84,8 @@ class _$StudentCopyWithImpl<$Res, $Val extends Student>
     Object? status = null,
     Object? name = null,
     Object? email = null,
-    Object? googleId = null,
-    Object? facebookId = null,
+    Object? googleId = freezed,
+    Object? facebookId = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -132,14 +132,14 @@ class _$StudentCopyWithImpl<$Res, $Val extends Student>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      googleId: null == googleId
+      googleId: freezed == googleId
           ? _value.googleId
           : googleId // ignore: cast_nullable_to_non_nullable
-              as String,
-      facebookId: null == facebookId
+              as String?,
+      facebookId: freezed == facebookId
           ? _value.facebookId
           : facebookId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -163,8 +163,8 @@ abstract class _$$_StudentCopyWith<$Res> implements $StudentCopyWith<$Res> {
       bool status,
       String name,
       String email,
-      String googleId,
-      String facebookId});
+      String? googleId,
+      String? facebookId});
 }
 
 /// @nodoc
@@ -188,8 +188,8 @@ class __$$_StudentCopyWithImpl<$Res>
     Object? status = null,
     Object? name = null,
     Object? email = null,
-    Object? googleId = null,
-    Object? facebookId = null,
+    Object? googleId = freezed,
+    Object? facebookId = freezed,
   }) {
     return _then(_$_Student(
       id: null == id
@@ -236,14 +236,14 @@ class __$$_StudentCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      googleId: null == googleId
+      googleId: freezed == googleId
           ? _value.googleId
           : googleId // ignore: cast_nullable_to_non_nullable
-              as String,
-      facebookId: null == facebookId
+              as String?,
+      facebookId: freezed == facebookId
           ? _value.facebookId
           : facebookId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -293,10 +293,10 @@ class _$_Student implements _Student {
   final String email;
   @override
   @JsonKey()
-  final String googleId;
+  final String? googleId;
   @override
   @JsonKey()
-  final String facebookId;
+  final String? facebookId;
 
   @override
   String toString() {
@@ -374,8 +374,8 @@ abstract class _Student implements Student {
       required final bool status,
       required final String name,
       required final String email,
-      final String googleId,
-      final String facebookId}) = _$_Student;
+      final String? googleId,
+      final String? facebookId}) = _$_Student;
 
   factory _Student.fromJson(Map<String, dynamic> json) = _$_Student.fromJson;
 
@@ -402,9 +402,9 @@ abstract class _Student implements Student {
   @override
   String get email;
   @override
-  String get googleId;
+  String? get googleId;
   @override
-  String get facebookId;
+  String? get facebookId;
   @override
   @JsonKey(ignore: true)
   _$$_StudentCopyWith<_$_Student> get copyWith =>

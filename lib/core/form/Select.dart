@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pss_mobile/interface/form/select/selectData.dart';
+import 'package:pss_mobile/interface/form/select/select_data.dart';
 
 class SelectC extends StatefulWidget {
   late List<SelectItem> selectData;

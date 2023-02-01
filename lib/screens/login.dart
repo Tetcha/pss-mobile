@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pss_mobile/core/form/ErrorMessage.dart';
-import 'package:pss_mobile/core/form/TextField.dart';
+import 'package:pss_mobile/core/form/error_message.dart';
+import 'package:pss_mobile/core/form/text_field.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
 import 'package:pss_mobile/screens/register.dart';
 import 'package:pss_mobile/util/route.dart';

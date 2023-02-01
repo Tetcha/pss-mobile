@@ -19,10 +19,12 @@ class UserProvider extends GetxController {
   final AuthApi _authApi = Get.find();
   final _googleSignIn = GoogleSignIn();
   var googleAccount = Rx<GoogleSignInAccount?>(null);
-
+  var googleAuth = Rx<GoogleSignInAuthentication?>(null);
   User currentUser = defaultUser;
 
   RxBool isLogin = false.obs;
+
+  get accessToken => googleAuth.value?.accessToken;
 
   set setIsLogin(bool isLogin) {
     this.isLogin.value = isLogin;
@@ -35,14 +37,18 @@ class UserProvider extends GetxController {
 
   login() async {
     try {
-      var res = await _googleSignIn.signIn();
-      if (res != null) {
+      var googleAccountResponse = await _googleSignIn.signIn();
+
+      if (googleAccountResponse == null) {
         Get.snackbar(
             "Error", "Something wrong happens, please try again later!",
             backgroundColor: Colors.green, colorText: Colors.white);
         throw Exception('Google Sign In Failed');
       }
-      googleAccount?.value = res;
+
+      googleAccount.value = googleAccountResponse;
+      googleAuth.value = await googleAccountResponse.authentication;
+
       setIsLogin = true;
     } catch (e) {
       print("login error $e");

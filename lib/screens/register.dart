@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/api/auth.api.dart';
-import 'package:pss_mobile/core/form/TextField.dart';
+import 'package:pss_mobile/core/form/text_field.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});

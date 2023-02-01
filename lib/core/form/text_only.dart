@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pss_mobile/core/extensions/string.dart';
+import 'package:pss_mobile/core/form/title.dart';
 
 class TextOnly extends StatelessWidget {
   final String label;
@@ -12,14 +13,7 @@ class TextOnly extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 5),
-        Text(
-          label.capitalize(),
-          textAlign: TextAlign.left,
-          style: const TextStyle(
-            fontSize: 12,
-            color: Colors.black87,
-          ),
-        ),
+        FieldTitle(label: label),
         const SizedBox(height: 5),
         Text(
           value,

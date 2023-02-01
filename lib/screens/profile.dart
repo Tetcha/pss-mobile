@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/api/user.api.dart';
-import 'package:pss_mobile/core/form/TextField.dart';
-import 'package:pss_mobile/core/form/TextOnly.dart';
+import 'package:pss_mobile/core/constants/enum.dart';
+import 'package:pss_mobile/core/form/radio.dart';
+import 'package:pss_mobile/core/form/text_field.dart';
+import 'package:pss_mobile/core/form/text_only.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
+import 'package:pss_mobile/interface/form/radio/radio_data.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -17,44 +20,44 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final UserProvider _userProvider = Get.find();
   final UserApi _userApi = Get.find();
 
-  late final TextEditingController _usernameController;
-  late final TextEditingController _emailController;
-  late final TextEditingController _nameController;
+  late TextEditingController _studentCodeController;
+  late TextEditingController _phoneController;
+  late TextEditingController _birthdayController;
+  String? _genderValue;
 
   @override
   void initState() {
     // TODO: implement initState
 
-    TextEditingController(text: _userProvider.currentUser.name);
-    super.initState();
+    _studentCodeController =
+        TextEditingController(text: _userProvider.currentUser.name);
+    _phoneController =
+        TextEditingController(text: _userProvider.currentUser.name);
+    _birthdayController =
+        TextEditingController(text: _userProvider.currentUser.name);
   }
 
   void _onClear() {
-    _nameController.text = _userProvider.currentUser.name;
+    _studentCodeController.text = _userProvider.currentUser.name;
   }
 
   void _onSubmit() async {
-    var res = await _userApi.updateUser(
-        username: _usernameController.text,
-        email: _emailController.text,
-        name: _nameController.text);
+    print(_genderValue);
+  }
 
-    if (res?.statusCode == 200) {
-      _userProvider.getCurrentUser();
-      //TODO : send notification
-    }
+  void onGenderChange(String? value) {
+    _genderValue = value;
   }
 
   @override
   Widget build(BuildContext context) {
-    print(_userProvider.googleAccount.value);
     return Column(
       children: [
         Container(
           margin: const EdgeInsets.symmetric(vertical: 20),
           child: Center(
             child: CircleAvatar(
-              radius: 70,
+              radius: 50,
               backgroundImage: NetworkImage(_userProvider
                       .googleAccount.value?.photoUrl ??
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg"),
@@ -78,9 +81,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 10),
             TextFieldC(
-              controller: _nameController,
-              label: "Name",
-              name: "name",
+              controller: _studentCodeController,
+              label: "Student Code",
+              name: "studentCode",
+            ),
+            const SizedBox(height: 10),
+            TextFieldC(
+              controller: _phoneController,
+              label: "Phone",
+              name: "phone",
+            ),
+            const SizedBox(height: 10),
+            RadioC(
+              label: 'Gender',
+              options: [
+                RadioData(label: "Male", value: 'MALE'),
+                RadioData(label: "Female", value: 'FEMALE'),
+              ],
+              onInputChange: onGenderChange,
+            ),
+            const SizedBox(height: 10),
+            TextFieldC(
+              controller: _birthdayController,
+              label: "Birthday",
+              name: "birthday",
+              keyBoardType: TextInputType.datetime,
+              context: context,
             ),
             const SizedBox(height: 30),
             // bottom control button

@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import 'package:pss_mobile/core/injection/index.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
 import 'package:pss_mobile/screens/profile.dart';
-import 'package:pss_mobile/widgets/autoLogin/autoLogin.dart';
-import 'package:pss_mobile/widgets/bottomNavigation/index.dart';
-import 'package:pss_mobile/widgets/loadingOverlay/index.dart';
+import 'package:pss_mobile/widgets/auto_login/auto_login.dart';
+import 'package:pss_mobile/widgets/bottom_navigation/index.dart';
+import 'package:pss_mobile/widgets/loading_overlay/index.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,10 +31,10 @@ class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
 
   List<Widget> widgetList = <Widget>[
-    ProfileScreen(),
-    ProfileScreen(),
-    ProfileScreen(),
-    ProfileScreen(),
+    const ProfileScreen(),
+    const ProfileScreen(),
+    const ProfileScreen(),
+    const ProfileScreen(),
   ];
 
   void _onChangeTab(int index) {

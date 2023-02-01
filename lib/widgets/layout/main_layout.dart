@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
 import 'package:pss_mobile/screens/profile.dart';
-import 'package:pss_mobile/widgets/bottomNavigation/index.dart';
+import 'package:pss_mobile/widgets/bottom_navigation/index.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key, required this.children});
