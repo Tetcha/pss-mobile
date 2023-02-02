@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/api/user.api.dart';
-import 'package:pss_mobile/core/constants/enum.dart';
 import 'package:pss_mobile/core/form/radio.dart';
 import 'package:pss_mobile/core/form/text_field.dart';
 import 'package:pss_mobile/core/form/text_only.dart';
+import 'package:pss_mobile/core/providers/sharePreference.provider.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
 import 'package:pss_mobile/interface/form/radio/radio_data.dart';
 
@@ -19,7 +19,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   final UserProvider _userProvider = Get.find();
   final UserApi _userApi = Get.find();
-
+  final SharedPreferenceProvider _preferenceProvider = Get.find();
   late TextEditingController _studentCodeController;
   late TextEditingController _phoneController;
   late TextEditingController _birthdayController;
@@ -41,9 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _studentCodeController.text = _userProvider.currentUser.name;
   }
 
-  void _onSubmit() async {
-    print(_genderValue);
-  }
+  void _onSubmit() async {}
 
   void onGenderChange(String? value) {
     _genderValue = value;
