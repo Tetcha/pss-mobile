@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:pss_mobile/core/injection/index.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
 import 'package:pss_mobile/screens/profile.dart';
+import 'package:pss_mobile/screens/setting.dart';
 import 'package:pss_mobile/widgets/auto_login/auto_login.dart';
 import 'package:pss_mobile/widgets/bottom_navigation/index.dart';
 import 'package:pss_mobile/widgets/loading_overlay/index.dart';
@@ -34,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     const ProfileScreen(),
     const ProfileScreen(),
     const ProfileScreen(),
-    const ProfileScreen(),
+    SettingScreen(),
   ];
 
   void _onChangeTab(int index) {
@@ -61,12 +62,14 @@ class _MyAppState extends State<MyApp> {
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            title: const Text('Base flutter'),
+            title: const Text('Psync System'),
           ),
           body: FractionallySizedBox(
             widthFactor: 1,
             heightFactor: 1,
-            child: AutoLogin(children: widgetList[_currentIndex]),
+            child: AutoLogin(
+              children: widgetList[_currentIndex],
+            ),
           ),
           bottomNavigationBar: Obx(
             () => userProvider.isLogin.value

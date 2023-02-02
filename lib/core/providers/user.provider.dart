@@ -36,23 +36,18 @@ class UserProvider extends GetxController {
   }
 
   login() async {
-    try {
-      var googleAccountResponse = await _googleSignIn.signIn();
-
-      if (googleAccountResponse == null) {
-        Get.snackbar(
-            "Error", "Something wrong happens, please try again later!",
-            backgroundColor: Colors.green, colorText: Colors.white);
-        throw Exception('Google Sign In Failed');
-      }
-
-      googleAccount.value = googleAccountResponse;
-      googleAuth.value = await googleAccountResponse.authentication;
-
-      setIsLogin = true;
-    } catch (e) {
-      print("login error $e");
+    var googleAccountResponse = await _googleSignIn.signIn();
+    print("login google");
+    if (googleAccountResponse == null) {
+      Get.snackbar("Error", "Something wrong happens, please try again later!",
+          backgroundColor: Colors.green, colorText: Colors.white);
+      throw Exception('Google Sign In Failed');
     }
+
+    googleAccount.value = googleAccountResponse;
+    googleAuth.value = await googleAccountResponse.authentication;
+
+    setIsLogin = true;
   }
 
   Future<User?> getCurrentUser() async {

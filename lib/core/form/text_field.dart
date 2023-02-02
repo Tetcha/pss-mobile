@@ -63,7 +63,12 @@ class TextFieldC extends StatelessWidget {
           enabled: !disabled,
           controller: controller,
           obscureText: isPassword,
-          keyboardType: keyBoardType,
+          keyboardType: keyBoardType == TextInputType.datetime
+              ? TextInputType.none
+              : keyBoardType,
+          onTap: keyBoardType == TextInputType.datetime
+              ? _presentDatePicker
+              : null,
           decoration: InputDecoration(
             border: const UnderlineInputBorder(),
             labelText: label,

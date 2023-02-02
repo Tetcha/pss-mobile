@@ -57,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           margin: const EdgeInsets.symmetric(vertical: 20),
           child: Center(
             child: CircleAvatar(
-              radius: 50,
+              radius: 45,
               backgroundImage: NetworkImage(_userProvider
                       .googleAccount.value?.photoUrl ??
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/250px-Gatto_europeo4.jpg"),
@@ -65,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SizedBox(height: 10),

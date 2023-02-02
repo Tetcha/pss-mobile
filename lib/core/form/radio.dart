@@ -38,18 +38,28 @@ class _RadioCState<T> extends State<RadioC<T>> {
       children: <Widget>[
         const SizedBox(height: 5),
         FieldTitle(label: widget.label),
+        const SizedBox(height: 5),
         Column(
           children: widget.options
-              .map((element) => Row(
-                    children: [
-                      Radio(
+              .map(
+                (element) => Row(
+                  children: [
+                    Container(
+                      height: 25,
+                      width: 25,
+                      margin: const EdgeInsets.only(
+                        right: 10,
+                      ),
+                      child: Radio(
                         value: element.value,
                         groupValue: radioValue,
                         onChanged: _handleRadioValueChange,
                       ),
-                      Text(element.label),
-                    ],
-                  ))
+                    ),
+                    Text(element.label),
+                  ],
+                ),
+              )
               .toList(),
         )
       ],
