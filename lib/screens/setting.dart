@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/providers/sharePreference.provider.dart';
+import 'package:pss_mobile/core/providers/user.provider.dart';
 
 class SettingList {
   String title;
@@ -11,11 +12,9 @@ class SettingList {
 }
 
 class SettingScreen extends StatelessWidget {
-  late final SharedPreferenceProvider _preferenceProvider;
-
-  SettingScreen({super.key}) : _preferenceProvider = Get.find();
-
-  final List<SettingList> _settingList = [
+  final SharedPreferenceProvider _preferenceProvider = Get.find();
+  final UserProvider _userProvider = Get.find();
+  late final List<SettingList> _settingList = [
     SettingList(title: "Setting", icon: Icons.settings, onTap: () {}),
     SettingList(title: "Help", icon: Icons.help, onTap: () {}),
     SettingList(title: "About", icon: Icons.info, onTap: () {}),
@@ -24,10 +23,11 @@ class SettingScreen extends StatelessWidget {
         icon: Icons.logout,
         onTap: () {
           _preferenceProvider.removeAuthToken();
-          // getIt<SharedPreferenceHelper>().removeAuthToken();
-          // getIt<UserProvider>().resetData();
+          _userProvider.resetData();
         }),
   ];
+
+  SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,10 @@ class SettingScreen extends StatelessWidget {
       children: _settingList.map((e) {
         return Card(
           child: ListTile(
-              title: Text(e.title), leading: Icon(e.icon), onTap: e.onTap),
+            title: Text(e.title),
+            leading: Icon(e.icon),
+            onTap: e.onTap,
+          ),
         );
       }).toList(),
     );

@@ -19,18 +19,7 @@ class RegisterScreen extends StatelessWidget {
   final TextEditingController _confirmPasswordController =
       TextEditingController(text: '12345678');
 
-  void _onSubmit(BuildContext context, VoidCallback onSuccess) async {
-    var response = await _authApi.register(
-        username: _usernameController.text,
-        email: _emailController.text,
-        name: _nameController.text,
-        password: _passwordController.text,
-        confirmPassword: _confirmPasswordController.text);
-
-    var token = json.decode(response.toString())?["token"] as String;
-
-    if (token != '') onSuccess();
-  }
+  void _onSubmit(BuildContext context, VoidCallback onSuccess) async {}
 
   @override
   Widget build(BuildContext context) {

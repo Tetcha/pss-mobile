@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pss_mobile/core/api/auth.api.dart';
 import 'package:pss_mobile/core/models/User/user.dart';
 import 'package:pss_mobile/core/providers/sharePreference.provider.dart';
+import 'package:pss_mobile/interface/api/login.api.dart';
 
 const defaultUser = User(
   id: "",
@@ -20,7 +21,13 @@ class UserProvider extends GetxController {
   final AuthApi _authApi = Get.find();
   final SharedPreferenceProvider _sharedPreferenceProvider = Get.find();
 
-  final _googleSignIn = GoogleSignIn();
+  final _googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ],
+  );
   var googleAccount = Rx<GoogleSignInAccount?>(null);
   var googleAuth = Rx<GoogleSignInAuthentication?>(null);
   User currentUser = defaultUser;
@@ -36,6 +43,8 @@ class UserProvider extends GetxController {
   void resetData() {
     currentUser = defaultUser;
     isLogin.value = false;
+    googleAccount.value = null;
+    googleAuth.value = null;
   }
 
   login() async {
@@ -47,7 +56,6 @@ class UserProvider extends GetxController {
     }
 
     // set value
-
     googleAccount.value = googleAccountResponse;
     googleAuth.value = await googleAccountResponse.authentication;
 
@@ -55,6 +63,12 @@ class UserProvider extends GetxController {
     _sharedPreferenceProvider
         .saveAuthToken(googleAuth.value?.accessToken ?? "");
 
+    print("loginRes ${googleAuth.value?.idToken}");
+    var loginRes = await _authApi.login(LoginApiPayload(
+      name: googleAccount.value?.displayName ?? "",
+      accessToken: googleAuth.value?.accessToken ?? "",
+      email: googleAccount.value?.email ?? "",
+    ));
     setIsLogin = true;
   }
 

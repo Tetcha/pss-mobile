@@ -13,7 +13,7 @@ class ApiClient {
   final UIProvider _uiProvider = Get.find();
   Dio http = Dio(
     BaseOptions(
-      baseUrl: 'http://10.0.2.2:4000/api',
+      baseUrl: 'http://10.0.2.2:4000/api/v1',
     ),
   );
 
