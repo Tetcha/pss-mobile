@@ -37,7 +37,6 @@ class UserProvider extends GetxController {
 
   login() async {
     var googleAccountResponse = await _googleSignIn.signIn();
-    print("login google");
     if (googleAccountResponse == null) {
       Get.snackbar("Error", "Something wrong happens, please try again later!",
           backgroundColor: Colors.green, colorText: Colors.white);
