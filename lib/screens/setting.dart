@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pss_mobile/core/providers/sharePreference.provider.dart';
 
 class SettingList {
   String title;
@@ -9,7 +11,9 @@ class SettingList {
 }
 
 class SettingScreen extends StatelessWidget {
-  SettingScreen({super.key});
+  late final SharedPreferenceProvider _preferenceProvider;
+
+  SettingScreen({super.key}) : _preferenceProvider = Get.find();
 
   final List<SettingList> _settingList = [
     SettingList(title: "Setting", icon: Icons.settings, onTap: () {}),
@@ -19,6 +23,7 @@ class SettingScreen extends StatelessWidget {
         title: "Logout",
         icon: Icons.logout,
         onTap: () {
+          _preferenceProvider.removeAuthToken();
           // getIt<SharedPreferenceHelper>().removeAuthToken();
           // getIt<UserProvider>().resetData();
         }),

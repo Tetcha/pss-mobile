@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pss_mobile/core/api/auth.api.dart';
 import 'package:pss_mobile/core/models/User/user.dart';
+import 'package:pss_mobile/core/providers/sharePreference.provider.dart';
 
 const defaultUser = User(
   id: "",
@@ -17,6 +18,8 @@ const defaultUser = User(
 
 class UserProvider extends GetxController {
   final AuthApi _authApi = Get.find();
+  final SharedPreferenceProvider _sharedPreferenceProvider = Get.find();
+
   final _googleSignIn = GoogleSignIn();
   var googleAccount = Rx<GoogleSignInAccount?>(null);
   var googleAuth = Rx<GoogleSignInAuthentication?>(null);
@@ -43,8 +46,14 @@ class UserProvider extends GetxController {
       throw Exception('Google Sign In Failed');
     }
 
+    // set value
+
     googleAccount.value = googleAccountResponse;
     googleAuth.value = await googleAccountResponse.authentication;
+
+    // store access token
+    _sharedPreferenceProvider
+        .saveAuthToken(googleAuth.value?.accessToken ?? "");
 
     setIsLogin = true;
   }
