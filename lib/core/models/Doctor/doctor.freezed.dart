@@ -29,7 +29,9 @@ mixin _$Doctor {
   double get balance => throw _privateConstructorUsedError;
   bool get status => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError; // new
+  String get photoUrl => throw _privateConstructorUsedError;
+  String get introduction => throw _privateConstructorUsedError;
   String get googleId => throw _privateConstructorUsedError;
   String get facebookId => throw _privateConstructorUsedError;
 
@@ -54,6 +56,8 @@ abstract class $DoctorCopyWith<$Res> {
       bool status,
       String name,
       String email,
+      String photoUrl,
+      String introduction,
       String googleId,
       String facebookId});
 }
@@ -81,6 +85,8 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
     Object? status = null,
     Object? name = null,
     Object? email = null,
+    Object? photoUrl = null,
+    Object? introduction = null,
     Object? googleId = null,
     Object? facebookId = null,
   }) {
@@ -125,6 +131,14 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      photoUrl: null == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      introduction: null == introduction
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
       googleId: null == googleId
           ? _value.googleId
           : googleId // ignore: cast_nullable_to_non_nullable
@@ -154,6 +168,8 @@ abstract class _$$_DoctorCopyWith<$Res> implements $DoctorCopyWith<$Res> {
       bool status,
       String name,
       String email,
+      String photoUrl,
+      String introduction,
       String googleId,
       String facebookId});
 }
@@ -178,6 +194,8 @@ class __$$_DoctorCopyWithImpl<$Res>
     Object? status = null,
     Object? name = null,
     Object? email = null,
+    Object? photoUrl = null,
+    Object? introduction = null,
     Object? googleId = null,
     Object? facebookId = null,
   }) {
@@ -222,6 +240,14 @@ class __$$_DoctorCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      photoUrl: null == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      introduction: null == introduction
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
       googleId: null == googleId
           ? _value.googleId
           : googleId // ignore: cast_nullable_to_non_nullable
@@ -248,6 +274,8 @@ class _$_Doctor implements _Doctor {
       required this.status,
       required this.name,
       required this.email,
+      required this.photoUrl,
+      required this.introduction,
       this.googleId = "",
       this.facebookId = ""});
 
@@ -274,6 +302,11 @@ class _$_Doctor implements _Doctor {
   final String name;
   @override
   final String email;
+// new
+  @override
+  final String photoUrl;
+  @override
+  final String introduction;
   @override
   @JsonKey()
   final String googleId;
@@ -283,7 +316,7 @@ class _$_Doctor implements _Doctor {
 
   @override
   String toString() {
-    return 'Doctor(id: $id, createAt: $createAt, updateAt: $updateAt, birthday: $birthday, phone: $phone, gender: $gender, balance: $balance, status: $status, name: $name, email: $email, googleId: $googleId, facebookId: $facebookId)';
+    return 'Doctor(id: $id, createAt: $createAt, updateAt: $updateAt, birthday: $birthday, phone: $phone, gender: $gender, balance: $balance, status: $status, name: $name, email: $email, photoUrl: $photoUrl, introduction: $introduction, googleId: $googleId, facebookId: $facebookId)';
   }
 
   @override
@@ -304,6 +337,10 @@ class _$_Doctor implements _Doctor {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.photoUrl, photoUrl) ||
+                other.photoUrl == photoUrl) &&
+            (identical(other.introduction, introduction) ||
+                other.introduction == introduction) &&
             (identical(other.googleId, googleId) ||
                 other.googleId == googleId) &&
             (identical(other.facebookId, facebookId) ||
@@ -312,8 +349,22 @@ class _$_Doctor implements _Doctor {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, createAt, updateAt, birthday,
-      phone, gender, balance, status, name, email, googleId, facebookId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      createAt,
+      updateAt,
+      birthday,
+      phone,
+      gender,
+      balance,
+      status,
+      name,
+      email,
+      photoUrl,
+      introduction,
+      googleId,
+      facebookId);
 
   @JsonKey(ignore: true)
   @override
@@ -341,6 +392,8 @@ abstract class _Doctor implements Doctor {
       required final bool status,
       required final String name,
       required final String email,
+      required final String photoUrl,
+      required final String introduction,
       final String googleId,
       final String facebookId}) = _$_Doctor;
 
@@ -366,6 +419,10 @@ abstract class _Doctor implements Doctor {
   String get name;
   @override
   String get email;
+  @override // new
+  String get photoUrl;
+  @override
+  String get introduction;
   @override
   String get googleId;
   @override

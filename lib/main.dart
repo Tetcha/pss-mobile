@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pss_mobile/core/injection/index.dart';
 import 'package:pss_mobile/core/providers/user.provider.dart';
+import 'package:pss_mobile/screens/all_doctor.dart';
+import 'package:pss_mobile/screens/home.dart';
 import 'package:pss_mobile/screens/profile.dart';
 import 'package:pss_mobile/screens/setting.dart';
 import 'package:pss_mobile/widgets/auto_login/auto_login.dart';
@@ -32,8 +34,8 @@ class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
 
   List<Widget> widgetList = <Widget>[
-    const ProfileScreen(),
-    const ProfileScreen(),
+    HomeScreen(),
+    const AllDoctorScreen(),
     const ProfileScreen(),
     SettingScreen(),
   ];
@@ -51,24 +53,26 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       title: 'Flutter Base',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          backgroundColor: Colors.grey[200],
-          primaryColorLight: Colors.blue,
-          primaryColorDark: Colors.black54,
-          textTheme: const TextTheme(
-            labelSmall: TextStyle(fontSize: 8),
-          )),
+        primarySwatch: Colors.blue,
+        backgroundColor: Colors.grey[200],
+        primaryColorLight: Colors.blue,
+        primaryColorDark: Colors.black54,
+        textTheme: const TextTheme(
+          labelSmall: TextStyle(fontSize: 8),
+        ),
+      ),
       home: LoadingOverlay(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            title: const Text('Psync System'),
+            title: const Text('Psych System'),
           ),
-          body: FractionallySizedBox(
-            widthFactor: 1,
-            heightFactor: 1,
-            child: AutoLogin(
-              children: widgetList[_currentIndex],
+          body: RepaintBoundary(
+            key: const Key("global key"),
+            child: SingleChildScrollView(
+              child: AutoLogin(
+                children: widgetList[_currentIndex],
+              ),
             ),
           ),
           bottomNavigationBar: Obx(

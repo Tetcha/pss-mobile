@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pss_mobile/core/constants/style.dart';
 import 'package:pss_mobile/core/form/title.dart';
 import 'package:pss_mobile/interface/form/radio/radio_data.dart';
 
@@ -56,7 +57,12 @@ class _RadioCState<T> extends State<RadioC<T>> {
                         onChanged: _handleRadioValueChange,
                       ),
                     ),
-                    Text(element.label),
+                    Text(
+                      element.label,
+                      style: TextStyle(
+                        fontSize: StyleTheme.textSize,
+                      ),
+                    ),
                   ],
                 ),
               )

@@ -1,145 +1,34 @@
 {
   "project_info": {
-    "project_number": "869901017016",
-    "project_id": "psynch-app",
-    "storage_bucket": "psynch-app.appspot.com"
+    "project_number": "955612507216",
+    "project_id": "psych-support-system-37213",
+    "storage_bucket": "psych-support-system-37213.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:869901017016:android:e6a1db31b3c96eb443b94d",
+        "mobilesdk_app_id": "1:955612507216:android:deedf25292862631c8b555",
         "android_client_info": {
           "package_name": "com.example.pss_mobile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "869901017016-5515lqho3toes07fdftg68oj2h089t27.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.pss_mobile",
-            "certificate_hash": "4ae8a1c9604c5605693c88ae1ac74c1044c463e5"
-          }
-        },
-        {
-          "client_id": "869901017016-5etiajjj4j5qq8qrvgbl4n4o2th081qb.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.pss_mobile",
-            "certificate_hash": "506cfb6b483d345057ac81dd712b9dce062e5e1f"
-          }
-        },
-        {
-          "client_id": "869901017016-timdqnnc8fromur67k4u0v4llj5utfgd.apps.googleusercontent.com",
+          "client_id": "955612507216-ahp0tioq6almfl93j4t6gsf6likughtl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAK6LXORrEItlbp30CPZJR4UOB28BnTxRM"
+          "current_key": "AIzaSyCNW9A_b8YSLdPT3tS3nFu9w3T-cEmZmQ4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "869901017016-o1fmfjg3i12g0sdhin31t29jnni60aj8.apps.googleusercontent.com",
+              "client_id": "955612507216-1smuq3moj8km2ir2opcr51rjrni2j72t.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "869901017016-r5nb8tb72q984juvcopugjp3u5i62ae7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "tetcha.psynch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:869901017016:android:d5a9f3c504724f3f43b94d",
-        "android_client_info": {
-          "package_name": "com.example.schedule_app_fe"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "869901017016-etlh74ltoeangm2ga7gsbu0rapdee455.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.schedule_app_fe",
-            "certificate_hash": "4ae8a1c9604c5605693c88ae1ac74c1044c463e5"
-          }
-        },
-        {
-          "client_id": "869901017016-timdqnnc8fromur67k4u0v4llj5utfgd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAK6LXORrEItlbp30CPZJR4UOB28BnTxRM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "869901017016-o1fmfjg3i12g0sdhin31t29jnni60aj8.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "869901017016-r5nb8tb72q984juvcopugjp3u5i62ae7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "tetcha.psynch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:869901017016:android:b0948aab048eab7943b94d",
-        "android_client_info": {
-          "package_name": "tetcha.psynch"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "869901017016-k2dhcushuffamobtoce29kbvaff1nmcd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "tetcha.psynch",
-            "certificate_hash": "4ae8a1c9604c5605693c88ae1ac74c1044c463e5"
-          }
-        },
-        {
-          "client_id": "869901017016-timdqnnc8fromur67k4u0v4llj5utfgd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAK6LXORrEItlbp30CPZJR4UOB28BnTxRM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "869901017016-o1fmfjg3i12g0sdhin31t29jnni60aj8.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "869901017016-r5nb8tb72q984juvcopugjp3u5i62ae7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "tetcha.psynch"
-              }
             }
           ]
         }

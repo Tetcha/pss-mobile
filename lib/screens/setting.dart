@@ -31,16 +31,20 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: _settingList.map((e) {
-        return Card(
-          child: ListTile(
-            title: Text(e.title),
-            leading: Icon(e.icon),
-            onTap: e.onTap,
-          ),
-        );
-      }).toList(),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      child: ListView.builder(
+        itemCount: _settingList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            child: ListTile(
+              title: Text(_settingList[index].title),
+              leading: Icon(_settingList[index].icon),
+              onTap: _settingList[index].onTap,
+            ),
+          );
+        },
+      ),
     );
   }
 }

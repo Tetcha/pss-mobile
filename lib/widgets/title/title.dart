@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:pss_mobile/core/constants/style.dart';
 import 'package:pss_mobile/core/extensions/string.dart';
 
-class FieldTitle extends StatelessWidget {
+class SectionTitle extends StatelessWidget {
   final String label;
-  const FieldTitle({super.key, required this.label});
+  const SectionTitle({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +12,9 @@ class FieldTitle extends StatelessWidget {
       label.capitalize(),
       textAlign: TextAlign.left,
       style: TextStyle(
-        fontSize: StyleTheme.formTitleSize,
-        color: StyleTheme.formTitleColor,
+        fontSize: StyleTheme.titleSize,
+        color: StyleTheme.titleColor,
+        fontWeight: FontWeight.bold,
       ),
     );
   }

@@ -17,6 +17,9 @@ class Doctor with _$Doctor {
     required bool status,
     required String name,
     required String email,
+    // new
+    required String photoUrl,
+    required String introduction,
     @Default("") String googleId,
     @Default("") String facebookId,
   }) = _Doctor;

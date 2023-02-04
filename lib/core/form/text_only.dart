@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pss_mobile/core/extensions/string.dart';
+import 'package:pss_mobile/core/constants/style.dart';
 import 'package:pss_mobile/core/form/title.dart';
 
 class TextOnly extends StatelessWidget {
@@ -19,7 +19,7 @@ class TextOnly extends StatelessWidget {
           value,
           textAlign: TextAlign.left,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: StyleTheme.textSize,
           ),
         ),
       ],

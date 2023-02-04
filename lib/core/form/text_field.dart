@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:pss_mobile/core/constants/style.dart';
 import 'package:pss_mobile/core/providers/api.provider.dart';
 
 class TextFieldC extends StatelessWidget {
@@ -70,8 +71,11 @@ class TextFieldC extends StatelessWidget {
               ? _presentDatePicker
               : null,
           decoration: InputDecoration(
-            border: const UnderlineInputBorder(),
+            // border: const UnderlineInputBorder(),
             labelText: label,
+            labelStyle: TextStyle(
+              color: StyleTheme.formTitleColor,
+            ),
             hintText: hintText,
             prefixIcon: suffixIcon,
             suffixIcon: keyBoardType == TextInputType.datetime
