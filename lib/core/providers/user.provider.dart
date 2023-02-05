@@ -63,11 +63,8 @@ class UserProvider extends GetxController {
     _sharedPreferenceProvider
         .saveAuthToken(googleAuth.value?.accessToken ?? "");
 
-    print("loginRes ${googleAuth.value?.idToken}");
     var loginRes = await _authApi.login(LoginApiPayload(
-      name: googleAccount.value?.displayName ?? "",
       accessToken: googleAuth.value?.accessToken ?? "",
-      email: googleAccount.value?.email ?? "",
     ));
     setIsLogin = true;
   }

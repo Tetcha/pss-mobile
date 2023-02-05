@@ -10,9 +10,7 @@ class AuthApi {
   Future<dynamic> login(LoginApiPayload payload) async {
     try {
       final response = await _apiClient.http.post('/student/login', data: {
-        "name": payload.name,
         "accessToken": payload.accessToken,
-        "email": payload.email
       });
       print("response $response");
 
